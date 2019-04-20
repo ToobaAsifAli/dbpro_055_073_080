@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -38,9 +40,12 @@ namespace EmployeeLoanManagementSystem.Controllers
         //file download
         public FileResult Download()
         {
-            byte[] fileBytes = System.IO.File.ReadAllBytes(@"c:\folder\myfile.ext");
-            string fileName = "myfile.ext";
-            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            string path = Server.MapPath("~/assets/files");
+            string filename =   Path.GetFileName("agreement.pdf");
+            string fullpath = Path.Combine(path, filename);
+            return File(fullpath, "pdf","employee_agreement.pdf");
+            
+            //return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
             // GET: LoanApplies/Create
@@ -52,7 +57,16 @@ namespace EmployeeLoanManagementSystem.Controllers
             ViewBag.LoanApplyId = new SelectList(db.LoanRequestStatus, "LoanId", "RequestStatus");
             return View();
         }
-
+        // GET: LoanApplies/Create
+        public ActionResult Create(LoanApply b1,HttpPostedFileBase image1)
+        {
+            ViewBag.EmployeeId = new SelectList(db.Employees, "Id", "FirstName");
+            ViewBag.LoanCategory = new SelectList(db.LoanCategories, "Id", "Type");
+            ViewBag.LoanApplyId = new SelectList(db.LoanDocumentVerifies, "LoanId", "IsDefaulter");
+            ViewBag.LoanApplyId = new SelectList(db.LoanRequestStatus, "LoanId", "RequestStatus");
+            return View();
+        }
+      
         // POST: LoanApplies/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

@@ -1,0 +1,177 @@
+﻿@model EmployeeLoanManagementSystem.Models.LoanApply
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<html>
+
+
+<head>
+
+
+
+    <style type="text/css">
+
+
+        body {
+        }
+
+        .registration {
+            color: black;
+            font-size: 40px;
+            font-family: Agency FB;
+            font-weight: 700;
+            border-bottom-style: ridge;
+        }
+
+        .row {
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0,0,0,.5);
+            -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+        }
+
+
+        .btn.hover {
+            background-color: aqua;
+        }
+
+        label {
+            font-size: 22px;
+        }
+
+        .btn-danger {
+            border-radius: 0px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <img src="/images/syslogo.png" align="left" style="height:140px; padding-top:20px;padding-left:350px">
+
+                <center style="text-align:center ;
+	padding-top: 100px;padding-bottom:20px"><b class="registration">LOAN APPLICATION FORM</b></center>
+                <hr />
+                <h4 align="left"> CONTACT INFORMATION</h4>
+                <hr />
+                <form>
+                    <div class="form-group">
+                        <label>Name :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Gender :</label>
+                        <input align="left" type="radio" name="name" style="font-size: 18px;height:50px;width:200px" />Male<br>
+                        <input align="left" type="radio" name="name" style="font-size: 18px;height:50px;width:200px" />Female<br>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth :</label>
+                        <input type="datetime" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Address :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Contact No  :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <hr />
+                    <h4 align="left"> EMPLOYEE INFORMATION</h4>
+                    <hr />
+                    <div class="form-group">
+                        <label>Designation  :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Department  :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Income  :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Provident Fund  :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label>Account No.  :</label>
+                        <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <hr />
+                    <h4 align="left">APPLY FOR LOAN</h4>
+                    <hr />
+                    <div class="form-group">
+                        <label>Loan Category :</label>
+                        <input align="left" type="radio" name="name" style="font-size: 18px;height:50px;width:200px" />Loan Against Provident Fund<br>
+                        <input align="left" type="radio" name="name" style="font-size: 18px;height:50px;width:200px" />General Loan<br>
+                    </div>
+                    <div class="form-group">
+                        <label>Loan Purpose :</label>
+                        <p style=""font-size: 15px">You are required to select the category written below if you have choosen loan against provident fund</p>
+                        <input align="left" type="radio" name="name" style="font-size: 18px;height:50px;width:200px" />Property Fund<br>
+                        <input align="left" type="radio" name="name" style="font-size: 18px;height:50px;width:200px" />Automobile Fund<br>
+                    </div>
+                    <div class="form-group">
+                        <label>Maximum Loan Granted  :</label>
+                        <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label> Loan Requested  :</label>
+                        <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label> Maximum Number Of Installments  :</label>
+                        <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label> Installments Acquired  :</label>
+                        <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label> Installments Start Date  :</label>
+                        <input type="datetime" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label> Installments End Date  :</label>
+                        <input type="datetime" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <label> Installments Money  :</label>
+                        <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                    </div>
+                    <div class="form-group">
+                        <a href="~/Admin/Dashboard">
+                            <input class="btn " style="font-family:Arial;font-size:18px;height:50px;width:120px" type="button" value="Log In" />
+                        </a>
+                        <a href="~/Admin/Reset">
+                            <input class="btn " style="font-family:Arial;font-size:18px;height:50px;width:150px" type="button" value="Reset Password" />
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

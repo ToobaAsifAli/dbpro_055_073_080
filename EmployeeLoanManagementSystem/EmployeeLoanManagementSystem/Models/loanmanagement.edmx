@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB7Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB7Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="Id" />
@@ -67,11 +67,11 @@
           <Property Name="NoOfInstallments" Type="int" Nullable="false" />
           <Property Name="InstallmentStartDate" Type="datetime" />
           <Property Name="InstallmentEndDate" Type="datetime" />
-          <Property Name="Template" Type="image" Nullable="false" />
           <Property Name="RequestDate" Type="datetime" Nullable="false" />
           <Property Name="LoanAgreement" Type="image" Nullable="false" />
           <Property Name="LoanForProperty" Type="nchar" MaxLength="1" />
           <Property Name="LoanForAutomobile" Type="nchar" MaxLength="1" />
+          <Property Name="Installment Money" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="LoanCategory">
           <Key>
@@ -245,8 +245,7 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
             <End Role="LoanRequestStatus" EntitySet="LoanRequestStatus" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB7Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -316,7 +315,6 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <Property Name="NoOfInstallments" Type="Int32" Nullable="false" />
           <Property Name="InstallmentStartDate" Type="DateTime" Precision="3" />
           <Property Name="InstallmentEndDate" Type="DateTime" Precision="3" />
-          <Property Name="Template" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LoanAgreement" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="LoanForProperty" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
@@ -326,6 +324,7 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <NavigationProperty Name="LoanCategory1" Relationship="Self.FK_LoanApply_LoanCategory" FromRole="LoanApply" ToRole="LoanCategory" />
           <NavigationProperty Name="LoanDocumentVerify" Relationship="Self.FK_LoanDocumentVerify_LoanApply" FromRole="LoanApply" ToRole="LoanDocumentVerify" />
           <NavigationProperty Name="LoanRequestStatu" Relationship="Self.FK_LoanRequestStatus_LoanApply" FromRole="LoanApply" ToRole="LoanRequestStatus" />
+          <Property Name="Installment_Money" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="LoanCategory">
           <Key>
@@ -453,7 +452,7 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB7Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB7Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
@@ -497,7 +496,7 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB7ModelStoreContainer" CdmEntityContainer="DB7Entities1">
+        <EntityContainerMapping StorageEntityContainer="DB7ModelStoreContainer" CdmEntityContainer="DB7Entities2">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="DB7Model.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -556,6 +555,7 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <EntitySetMapping Name="LoanApplies">
             <EntityTypeMapping TypeName="DB7Model.LoanApply">
               <MappingFragment StoreEntitySet="LoanApply">
+                <ScalarProperty Name="Installment_Money" ColumnName="Installment Money" />
                 <ScalarProperty Name="LoanApplyId" ColumnName="LoanApplyId" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="LoanCategory" ColumnName="LoanCategory" />
@@ -563,7 +563,6 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
                 <ScalarProperty Name="NoOfInstallments" ColumnName="NoOfInstallments" />
                 <ScalarProperty Name="InstallmentStartDate" ColumnName="InstallmentStartDate" />
                 <ScalarProperty Name="InstallmentEndDate" ColumnName="InstallmentEndDate" />
-                <ScalarProperty Name="Template" ColumnName="Template" />
                 <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
                 <ScalarProperty Name="LoanAgreement" ColumnName="LoanAgreement" />
                 <ScalarProperty Name="LoanForProperty" ColumnName="LoanForProperty" />

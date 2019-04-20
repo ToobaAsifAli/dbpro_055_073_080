@@ -27,11 +27,11 @@ namespace EmployeeLoanManagementSystem.Models
         public int NoOfInstallments { get; set; }
         public Nullable<System.DateTime> InstallmentStartDate { get; set; }
         public Nullable<System.DateTime> InstallmentEndDate { get; set; }
-        public byte[] Template { get; set; }
         public System.DateTime RequestDate { get; set; }
         public byte[] LoanAgreement { get; set; }
         public string LoanForProperty { get; set; }
         public string LoanForAutomobile { get; set; }
+        public decimal Installment_Money { get; set; }
     
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

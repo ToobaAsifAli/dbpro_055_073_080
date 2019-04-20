@@ -199,53 +199,54 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoanAppliesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Department.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\employeeloan.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>employeeloan.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\employeeloan.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>employeeloan.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\employeeloan.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>employeeloan.edmx</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Installment.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanApply.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanCategory.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanDocumentVerify.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\loanmanagement.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loanmanagement.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\loanmanagement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\loanmanagement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loanmanagement.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanRequestStatu.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Lookup.cs">
-      <DependentUpon>employeeloan.tt</DependentUpon>
+      <DependentUpon>loanmanagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -304,15 +305,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\employeeloan.Context.tt">
+    <Content Include="Models\loanmanagement.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>employeeloan.edmx</DependentUpon>
-      <LastGenOutput>employeeloan.Context.cs</LastGenOutput>
+      <DependentUpon>loanmanagement.edmx</DependentUpon>
+      <LastGenOutput>loanmanagement.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\employeeloan.tt">
+    <Content Include="Models\loanmanagement.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>employeeloan.edmx</DependentUpon>
-      <LastGenOutput>employeeloan.cs</LastGenOutput>
+      <DependentUpon>loanmanagement.edmx</DependentUpon>
+      <LastGenOutput>loanmanagement.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -335,12 +336,12 @@
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\employeeloan.edmx">
+    <EntityDeploy Include="Models\loanmanagement.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>employeeloan.Designer.cs</LastGenOutput>
+      <LastGenOutput>loanmanagement.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\employeeloan.edmx.diagram">
-      <DependentUpon>employeeloan.edmx</DependentUpon>
+    <Content Include="Models\loanmanagement.edmx.diagram">
+      <DependentUpon>loanmanagement.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -387,10 +388,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\LoanApplies\Create.cshtml" />
+    <Content Include="Views\LoanApplies\Delete.cshtml" />
+    <Content Include="Views\LoanApplies\Details.cshtml" />
+    <Content Include="Views\LoanApplies\Edit.cshtml" />
+    <Content Include="Views\LoanApplies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\LoanApply\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

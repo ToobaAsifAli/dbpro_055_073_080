@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\Models\employeeloan.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\Models\loanmanagement.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

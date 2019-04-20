@@ -35,9 +35,16 @@ namespace EmployeeLoanManagementSystem.Controllers
             }
             return View(loanApply);
         }
+        //file download
+        public FileResult Download()
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(@"c:\folder\myfile.ext");
+            string fileName = "myfile.ext";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
 
-        // GET: LoanApplies/Create
-        public ActionResult Create()
+            // GET: LoanApplies/Create
+            public ActionResult Create()
         {
             ViewBag.EmployeeId = new SelectList(db.Employees, "Id", "FirstName");
             ViewBag.LoanCategory = new SelectList(db.LoanCategories, "Id", "Type");

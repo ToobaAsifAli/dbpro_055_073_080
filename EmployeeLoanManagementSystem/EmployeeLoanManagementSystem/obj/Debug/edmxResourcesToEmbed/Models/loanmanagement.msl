@@ -59,6 +59,7 @@
     <EntitySetMapping Name="LoanApplies">
       <EntityTypeMapping TypeName="DB7Model.LoanApply">
         <MappingFragment StoreEntitySet="LoanApply">
+          <ScalarProperty Name="Installment_Money" ColumnName="Installment Money" />
           <ScalarProperty Name="LoanApplyId" ColumnName="LoanApplyId" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="LoanCategory" ColumnName="LoanCategory" />

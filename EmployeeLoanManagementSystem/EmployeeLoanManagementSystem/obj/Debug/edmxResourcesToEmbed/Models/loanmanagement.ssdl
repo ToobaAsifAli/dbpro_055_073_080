@@ -66,6 +66,7 @@
     <Property Name="LoanAgreement" Type="image" Nullable="false" />
     <Property Name="LoanForProperty" Type="nchar" MaxLength="1" />
     <Property Name="LoanForAutomobile" Type="nchar" MaxLength="1" />
+    <Property Name="Installment Money" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="LoanCategory">
     <Key>

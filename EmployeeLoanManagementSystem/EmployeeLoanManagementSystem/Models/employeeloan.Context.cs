@@ -13,10 +13,10 @@ namespace EmployeeLoanManagementSystem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB7Entities : DbContext
+    public partial class DB7Entities1 : DbContext
     {
-        public DB7Entities()
-            : base("name=DB7Entities")
+        public DB7Entities1()
+            : base("name=DB7Entities1")
         {
         }
     

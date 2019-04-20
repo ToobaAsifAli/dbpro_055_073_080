@@ -14,12 +14,8 @@ namespace EmployeeLoanManagementSystem.Models
     
     public partial class Admin
     {
-        public Nullable<int> DepartmentId { get; set; }
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Designation { get; set; }
-    
-        public virtual Department Department { get; set; }
     }
 }

@@ -9,11 +9,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="DepartmentId" Type="int" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="Designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -46,6 +44,8 @@
           <Property Name="DepartmentId" Type="int" Nullable="false" />
           <Property Name="ProvidentFundOptedDate" Type="datetime" />
           <Property Name="CNIC" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsEmailSent" Type="nchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="Installment">
           <Key>
@@ -112,18 +112,6 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Designation" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_Admin_Department">
-          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
-          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Admin">
-              <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -228,10 +216,6 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
     [LoanDocumentVerify].[SubmissionDate] AS [SubmissionDate]
     FROM [dbo].[LoanDocumentVerify] AS [LoanDocumentVerify]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_Admin_Department" Association="Self.FK_Admin_Department">
-            <End Role="Department" EntitySet="Department" />
-            <End Role="Admin" EntitySet="Admin" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
             <End Role="Department" EntitySet="Department" />
             <End Role="Employee" EntitySet="Employee" />
@@ -270,12 +254,9 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="DepartmentId" Type="Int32" />
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Department" Relationship="Self.FK_Admin_Department" FromRole="Admin" ToRole="Department" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -283,7 +264,6 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Admins" Relationship="Self.FK_Admin_Department" FromRole="Department" ToRole="Admin" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_Department" FromRole="Department" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Employee">
@@ -310,6 +290,8 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <Property Name="DepartmentId" Type="Int32" Nullable="false" />
           <Property Name="ProvidentFundOptedDate" Type="DateTime" Precision="3" />
           <Property Name="CNIC" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsEmailSent" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
           <NavigationProperty Name="LoanApplies" Relationship="Self.FK_LoanApply_Employee" FromRole="Employee" ToRole="LoanApply" />
         </EntityType>
@@ -387,18 +369,6 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <NavigationProperty Name="LoanApply" Relationship="Self.FK_LoanDocumentVerify_LoanApply" FromRole="LoanDocumentVerify" ToRole="LoanApply" />
           <NavigationProperty Name="LoanRequestStatu" Relationship="Self.FK_LoanDocumentVerify_LoanRequestStatus" FromRole="LoanDocumentVerify" ToRole="LoanRequestStatus" />
         </EntityType>
-        <Association Name="FK_Admin_Department">
-          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
-          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Admin">
-              <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -483,7 +453,7 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB7Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB7Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
@@ -493,10 +463,6 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
           <EntitySet Name="LoanRequestStatus" EntityType="Self.LoanRequestStatu" />
           <EntitySet Name="Lookups" EntityType="Self.Lookup" />
           <EntitySet Name="LoanDocumentVerifies" EntityType="Self.LoanDocumentVerify" />
-          <AssociationSet Name="FK_Admin_Department" Association="Self.FK_Admin_Department">
-            <End Role="Department" EntitySet="Departments" />
-            <End Role="Admin" EntitySet="Admins" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
             <End Role="Department" EntitySet="Departments" />
             <End Role="Employee" EntitySet="Employees" />
@@ -531,15 +497,13 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB7ModelStoreContainer" CdmEntityContainer="DB7Entities">
+        <EntityContainerMapping StorageEntityContainer="DB7ModelStoreContainer" CdmEntityContainer="DB7Entities1">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="DB7Model.Admin">
               <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Designation" ColumnName="Designation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -574,6 +538,8 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="ProvidentFundOptedDate" ColumnName="ProvidentFundOptedDate" />
                 <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsEmailSent" ColumnName="IsEmailSent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

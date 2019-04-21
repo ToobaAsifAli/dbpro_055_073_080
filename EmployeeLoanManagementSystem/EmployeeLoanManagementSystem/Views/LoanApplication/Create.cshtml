@@ -1,10 +1,12 @@
 ﻿@model EmployeeLoanManagementSystem.Models.LoanApply
 
 @{
-    /**/
+                /**/
 
-    ViewBag.Title = "Create";
-  
+                /**/
+
+                ViewBag.Title = "Create";
+
 }
 
 
@@ -19,9 +21,9 @@
 
         body {
         }
-        .container{
-            overflow:auto;
-            
+
+        .container {
+            overflow: auto;
         }
 
         .registration {
@@ -35,10 +37,11 @@
         .row {
         }
 
-        nav.navbar.bootsnav.navbar-fixed{
-            overflow:scroll;
-            height:100%;
+        nav.navbar.bootsnav.navbar-fixed {
+            overflow: scroll;
+            height: 100%;
         }
+
         ::-webkit-scrollbar-thumb {
             border-radius: 4px;
             background-color: rgba(0,0,0,.5);
@@ -80,48 +83,48 @@
             </div>
             <div class="form-group">
                 <h5>Email :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="email" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5>Gender :</h5>
 
-                <input align="left" type="radio" name="name" style="font-size: 18px;background-color:white; height:30px;width:50px" class="Male" /><p style="font-size: 15px">Male</p> <br>
-                <input align="left" type="radio" name="name" style="font-size: 18px;background-color:white; height:30px;width:50px" class="Female" /><p style="font-size: 15px">Female</p><br>
+                <input align="left" type="radio" name="male" style="font-size: 18px;background-color:white; height:30px;width:50px" class="Male" /><p style="font-size: 15px">Male</p> <br>
+                <input align="left" type="radio" name="female" style="font-size: 18px;background-color:white; height:30px;width:50px" class="Female" /><p style="font-size: 15px">Female</p><br>
             </div>
             <div class="form-group">
                 <h5>Date of Birth :</h5>
-                <input type="datetime" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="datetime" name="birth" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5>Address :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="address" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5>Contact No  :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="contact" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <hr />
             <h4 align="left"> EMPLOYEE INFORMATION</h4>
             <hr />
             <div class="form-group">
                 <h5>Designation  :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="designation" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5>Department  :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="department" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5>Monthly Income  :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="income" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5>Provident Fund  :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="fund" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5>Account No.  :</h5>
-                <input type="text" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="text" name="account" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <hr />
             <h4 align="left">APPLY FOR LOAN</h4>
@@ -129,47 +132,54 @@
             <div class="form-group">
                 <h5>Loan Category :</h5>
                 <br />
-                <input align="left" type="radio" name="name" style="height:30px;width:50px" class="PFUND" /><p style="font-size: 15px">
+                <p style="font-size: 15px">
+                    Loan Against Provident Fund
+                    @Html.RadioButton("Category", "AgainstProvidentFund")
+                    <br />
+                <p style="font-size: 15px">
+                    General Loan
+                    @Html.RadioButton("Category", "General")
+                    @*<input align="left" type="radio" name="provident" style="height:30px;width:50px" class="PFUND" /><p style="font-size: 15px">
                     Loan Against Provident Fund<br>
-                    <input align="left" type="radio" name="name" style="height:30px;width:50px" class="General" />
-                <p style="font-size: 15px">General Loan<br>
+                    <input align="left" type="radio" name="general" style="height:30px;width:50px" class="General" />
+                <p style="font-size: 15px">General Loan<br>*@
             </div>
             <div class="form-group">
                 <h5>Loan Purpose :</h5>
                 <br />
                 <p style="" font-size: 15px">You are required to select the category written below if you have choosen loan against provident fund</p><br />
-                <input align="left" type="radio" name="name" style=" height:30px;width:50px" class="Property" /><p style="font-size: 15px">
-                    Property Fund<br>
-                    <input align="left" type="radio" name="name" style=" height:30px;width:50px" class="Male" />
-                <p style="font-size: 15px">Automobile Fund<br>
+                <p style="font-size: 15px">Property @Html.RadioButton("Purpose", "Property")
+                <p style="font-size: 15px">
+                    AutoMobile @Html.RadioButton("Purpose", "Automobile")
+                   
             </div>
             <div class="form-group">
                 <h5>Maximum Loan Granted  :</h5>
-                <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="number" name="maxloan" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5> Loan Requested  :</h5>
-                <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="number" name="loanreq" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5> Maximum Number Of Installments  :</h5>
-                <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="number" name="maxinstal" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5> Installments Acquired  :</h5>
-                <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="number" name="instalacq" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5> Installments Start Date  :</h5>
-                <input type="datetime" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="datetime" name="startdate" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5> Installments End Date  :</h5>
-                <input type="datetime" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="datetime" name="enddate" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <div class="form-group">
                 <h5> Installments Money  :</h5>
-                <input type="number" name="name" style="font-size: 20px;height:50px;width:550px" />
+                <input type="number" name="instalmoney" style="font-size: 20px;height:50px;width:550px" />
             </div>
             <hr />
             <h4 align="left">ACKNOWLEDGEMENT</h4>
@@ -177,7 +187,7 @@
             <div class="form-group">
 
                 <p style="" font-size: 15px">I hereby agree that the information given is true, accurate and complete as of the date of this application submission </p><br />
-                <p style="font-size: 15px">Yes<input align="left" type="radio" name="name" style=" height:30px;width:50px" class="Male" />
+                <p style="font-size: 15px">Yes<input align="left" type="radio" name="ack" style=" height:30px;width:50px" class="Male" />
             </div>
             <div class="form-group">
                 <p>The employee needs to download the template. Print it and fill it. Upload the image of the filled agreement document  in the upload button tab below</p>
@@ -188,9 +198,14 @@
             <div class="form-group">
                 <p>Upload the image of the filled agreement document  in the upload button tab below</p>
                 <input type="file" id="image1" name="image1" />
-                <a href="~/LoanApplies/Download">
-                    <input class="btn " style="font-family:Arial;font-size:12px;height:50px;width:160px" type="button" value="Download" />
-                </a>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a href=@Url.Action("Create","LoanApplication")>Submit@*~/LoanApplication/Create">
+                        <input type="submit" value="Create" class="btn btn-default" />*@
+                    </a>
+                </div>
             </div>
             <!-- <div class="form-group">
                     <a href="~/Admin/Dashboard">
@@ -204,7 +219,7 @@
         </div>
     </div>-->
         </div>
-        </div>
+    </div>
 
 </body>
 </html>

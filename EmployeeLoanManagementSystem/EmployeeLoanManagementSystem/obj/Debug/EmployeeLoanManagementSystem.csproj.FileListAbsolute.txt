@@ -358,3 +358,7 @@ C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagemen
 C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\obj\Debug\EmployeeLoanManagementSystem.dll
 C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\obj\Debug\EmployeeLoanManagementSystem.pdb
 C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\obj\Debug\EmployeeLoanManagementSystem.csprojAssemblyReference.cache
+C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\bin\Mvc.JQuery.DataTables.Common.dll
+C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\bin\Mvc.JQuery.DataTables.dll
+C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\bin\System.Linq.Dynamic.Core.dll
+C:\Users\maham\OneDrive\Documents\GitHub\dbpro_055_073_080\EmployeeLoanManagementSystem\EmployeeLoanManagementSystem\bin\System.Linq.Dynamic.Core.xml

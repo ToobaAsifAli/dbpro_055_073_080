@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoanApplicationController.cs" />
     <Compile Include="Controllers\LoanAppliesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -723,6 +724,8 @@
     <Content Include="Views\LoanApplies\Edit.cshtml" />
     <Content Include="Views\LoanApplies\Index.cshtml" />
     <Content Include="Views\LoanApplies\Create.cshtml" />
+    <Content Include="Views\LoanApplication\Create.cshtml" />
+    <Content Include="Views\LoanApplies\Create2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

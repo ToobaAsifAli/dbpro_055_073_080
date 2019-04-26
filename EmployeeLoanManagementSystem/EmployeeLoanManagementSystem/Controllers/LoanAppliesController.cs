@@ -14,7 +14,7 @@ namespace EmployeeLoanManagementSystem.Controllers
 {
     public class LoanAppliesController : Controller
     {
-        private DB7Entities2 db = new DB7Entities2();
+        private DB7Entities3 db = new DB7Entities3();
 
         // GET: LoanApplies
         public ActionResult Index()

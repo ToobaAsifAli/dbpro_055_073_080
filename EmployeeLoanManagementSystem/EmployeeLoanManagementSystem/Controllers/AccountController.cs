@@ -151,17 +151,56 @@ namespace EmployeeLoanManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
+                // var user = new ApplicationUser { UserName = model.FirstName, Email = model.Email, FirstName = model.FirstName, Designation = model.Designation,  HireDate = model.HireDate, AccountNo = model.AccountNo, BirthDate = model.BirthDate, Gender = model.Gender, DepartmentId = model.DepartmentId, CNIC = model.CNIC, ProvidentFundOpted=model.ProvidentFundOpted };
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+
+                    DB7Entities3 db = new DB7Entities3();
+                   // Employee emp = new Employee();
+                
+
+                   // //   Convert.ToInt16(a);
+
+                   //// DateTime.Parse(enteredString);
+                   // emp.FirstName= model.FirstName;
+                   // emp.Email = model.Email;
+                   // emp.Password = model.Password;
+                   // emp.Designation = model.Designation;
+                   // emp.ProvidentFundOpted = model.ProvidentFundOpted;
+                   // //emp.Salary = Convert.ToInt32(model.Salary);
+                   // emp.HireDate = DateTime.Parse(model.HireDate);
+                   // emp.AccountNo = model.AccountNo;
+                   // emp.BirthDate = DateTime.Parse(model.BirthDate);
+                   // emp.Gender = model.Gender;
+                   // emp.DepartmentId = Convert.ToInt16(model.DepartmentId);
+                   // emp.CNIC = model.CNIC;
+
+                   // db.Employees.Add(emp);
+
+
+                    db.SaveChanges();
+
+                    Admin ad = new Admin();
+                    ad.Email = model.Email;
+                    ad.Password = model.Password;
+                    db.Admins.Add(ad);
+                    db.SaveChanges();
+              
+
+
 
                     return RedirectToAction("Index", "Home");
                 }

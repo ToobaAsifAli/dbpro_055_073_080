@@ -50,6 +50,7 @@
     <Property Name="LoanId" Type="int" Nullable="false" />
     <Property Name="InstallmentsNo" Type="int" />
     <Property Name="InstallmentDate" Type="datetime" />
+    <Property Name="IsPaid" Type="nchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="LoanApply">
     <Key>

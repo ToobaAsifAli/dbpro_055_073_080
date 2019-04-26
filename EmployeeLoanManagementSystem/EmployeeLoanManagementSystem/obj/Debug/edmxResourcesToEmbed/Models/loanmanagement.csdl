@@ -53,6 +53,7 @@
     <Property Name="LoanId" Type="Int32" Nullable="false" />
     <Property Name="InstallmentsNo" Type="Int32" />
     <Property Name="InstallmentDate" Type="DateTime" Precision="3" />
+    <Property Name="IsPaid" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="LoanApply" Relationship="Self.FK_Installment_LoanApply" FromRole="Installment" ToRole="LoanApply" />
   </EntityType>
   <EntityType Name="LoanApply">
@@ -70,12 +71,12 @@
     <Property Name="LoanAgreement" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="LoanForProperty" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
     <Property Name="LoanForAutomobile" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="Installment_Money" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.FK_LoanApply_Employee" FromRole="LoanApply" ToRole="Employee" />
     <NavigationProperty Name="Installments" Relationship="Self.FK_Installment_LoanApply" FromRole="LoanApply" ToRole="Installment" />
     <NavigationProperty Name="LoanCategory1" Relationship="Self.FK_LoanApply_LoanCategory" FromRole="LoanApply" ToRole="LoanCategory" />
     <NavigationProperty Name="LoanDocumentVerify" Relationship="Self.FK_LoanDocumentVerify_LoanApply" FromRole="LoanApply" ToRole="LoanDocumentVerify" />
     <NavigationProperty Name="LoanRequestStatu" Relationship="Self.FK_LoanRequestStatus_LoanApply" FromRole="LoanApply" ToRole="LoanRequestStatus" />
-    <Property Name="Installment_Money" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="LoanCategory">
     <Key>
@@ -203,7 +204,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DB7Entities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DB7Entities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Admins" EntityType="Self.Admin" />
     <EntitySet Name="Departments" EntityType="Self.Department" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />

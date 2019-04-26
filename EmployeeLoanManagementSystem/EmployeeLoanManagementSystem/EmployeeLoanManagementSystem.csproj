@@ -210,6 +210,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoanApplicationController.cs" />
     <Compile Include="Controllers\LoanAppliesController.cs" />
+    <Compile Include="Controllers\loanController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -552,13 +553,6 @@
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\loanmanagement.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>loanmanagement.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\loanmanagement.edmx.diagram">
-      <DependentUpon>loanmanagement.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\datatables.extensions\AutoFill\js\dataTables.autoFill.js" />
     <Content Include="Scripts\datatables.extensions\AutoFill\js\dataTables.autoFill.min.js" />
     <Content Include="Scripts\datatables.extensions\AutoFill\Readme.txt" />
@@ -588,6 +582,13 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <EntityDeploy Include="Models\loanmanagement.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>loanmanagement.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\loanmanagement.edmx.diagram">
+      <DependentUpon>loanmanagement.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\datatables.extensions\Scroller\js\dataTables.scroller.js" />
     <Content Include="Scripts\datatables.extensions\Scroller\js\dataTables.scroller.min.js" />
@@ -726,6 +727,18 @@
     <Content Include="Views\LoanApplies\Create.cshtml" />
     <Content Include="Views\LoanApplication\Create.cshtml" />
     <Content Include="Views\LoanApplies\Create2.cshtml" />
+    <Content Include="Views\loan\Create.cshtml" />
+    <Content Include="Views\LoanApplies\Creatoo.cshtml" />
+    <Content Include="Views\loan\Edit.cshtml" />
+    <Content Include="Views\loan\Delete.cshtml" />
+    <Content Include="Views\loan\EmployeeWelcome.cshtml" />
+    <Content Include="Views\loan\welcome.cshtml" />
+    <Content Include="Views\loan\loanpolicies.cshtml" />
+    <Content Include="Views\loan\instructions.cshtml" />
+    <Content Include="Views\loan\documentsverify.cshtml" />
+    <Content Include="Views\loan\loanstat.cshtml" />
+    <Content Include="Views\loan\provident.cshtml" />
+    <Content Include="Views\loan\general.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DB7ModelStoreContainer" CdmEntityContainer="DB7Entities2">
+  <EntityContainerMapping StorageEntityContainer="DB7ModelStoreContainer" CdmEntityContainer="DB7Entities3">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="DB7Model.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -53,13 +53,13 @@
           <ScalarProperty Name="LoanId" ColumnName="LoanId" />
           <ScalarProperty Name="InstallmentsNo" ColumnName="InstallmentsNo" />
           <ScalarProperty Name="InstallmentDate" ColumnName="InstallmentDate" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LoanApplies">
       <EntityTypeMapping TypeName="DB7Model.LoanApply">
         <MappingFragment StoreEntitySet="LoanApply">
-          <ScalarProperty Name="Installment_Money" ColumnName="Installment Money" />
           <ScalarProperty Name="LoanApplyId" ColumnName="LoanApplyId" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="LoanCategory" ColumnName="LoanCategory" />
@@ -71,6 +71,7 @@
           <ScalarProperty Name="LoanAgreement" ColumnName="LoanAgreement" />
           <ScalarProperty Name="LoanForProperty" ColumnName="LoanForProperty" />
           <ScalarProperty Name="LoanForAutomobile" ColumnName="LoanForAutomobile" />
+          <ScalarProperty Name="Installment_Money" ColumnName="Installment Money" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

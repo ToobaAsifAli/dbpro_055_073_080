@@ -64,6 +64,45 @@ namespace EmployeeLoanManagementSystem.Models
 
     public class RegisterViewModel
     {
+
+
+
+   
+
+        //[Required]
+        //public string ProvidentFundOpted { get; set; }
+
+
+
+        //[Required]
+        //public string FirstName { get; set; }
+
+        //[Required]
+        //public string Designation { get; set; }
+
+        ////[Required]
+        ////public string Salary { get; set; }
+
+        //[Required]
+        //public string HireDate { get; set; }
+
+        //[Required]
+        //public string AccountNo { get; set; }
+
+
+        //[Required]
+        //public string BirthDate { get; set; }
+
+        //[Required]
+        //public string Gender { get; set; }
+
+        //[Required]
+        //public string DepartmentId { get; set; }
+
+        //[Required]
+        //public string CNIC { get; set; }
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

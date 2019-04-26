@@ -208,34 +208,51 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HRController.cs" />
     <Compile Include="Controllers\LoanApplicationController.cs" />
     <Compile Include="Controllers\LoanAppliesController.cs" />
+    <Compile Include="Controllers\loanController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Department.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Installment.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loan.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Loan.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Loan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Loan.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanApply.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanCategory.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanDocumentVerify.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\loanmanagement.Context.cs">
       <AutoGen>True</AutoGen>
@@ -253,10 +270,10 @@
       <DependentUpon>loanmanagement.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\LoanRequestStatu.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Lookup.cs">
-      <DependentUpon>loanmanagement.tt</DependentUpon>
+      <DependentUpon>Loan.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -521,6 +538,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Loan.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Loan.edmx</DependentUpon>
+      <LastGenOutput>Loan.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Loan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Loan.edmx</DependentUpon>
+      <LastGenOutput>Loan.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\loanmanagement.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>loanmanagement.edmx</DependentUpon>
@@ -588,6 +615,13 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <EntityDeploy Include="Models\Loan.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Loan.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Loan.edmx.diagram">
+      <DependentUpon>Loan.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\datatables.extensions\Scroller\js\dataTables.scroller.js" />
     <Content Include="Scripts\datatables.extensions\Scroller\js\dataTables.scroller.min.js" />
@@ -685,7 +719,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -726,6 +762,18 @@
     <Content Include="Views\LoanApplies\Create.cshtml" />
     <Content Include="Views\LoanApplication\Create.cshtml" />
     <Content Include="Views\LoanApplies\Create2.cshtml" />
+    <Content Include="Views\loan\Create.cshtml" />
+    <Content Include="Views\LoanApplies\Creatoo.cshtml" />
+    <Content Include="Views\loan\Edit.cshtml" />
+    <Content Include="Views\loan\Delete.cshtml" />
+    <Content Include="Views\loan\EmployeeWelcome.cshtml" />
+    <Content Include="Views\loan\welcome.cshtml" />
+    <Content Include="Views\loan\loanpolicies.cshtml" />
+    <Content Include="Views\loan\instructions.cshtml" />
+    <Content Include="Views\HR\Welcome.cshtml" />
+    <Content Include="Views\HR\PendingRequest.cshtml" />
+    <Content Include="Views\HR\AcceptRequest.cshtml" />
+    <Content Include="Views\HR\RejectRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

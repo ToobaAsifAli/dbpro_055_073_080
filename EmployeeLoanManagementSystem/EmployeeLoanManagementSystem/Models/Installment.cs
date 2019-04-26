@@ -18,6 +18,7 @@ namespace EmployeeLoanManagementSystem.Models
         public int LoanId { get; set; }
         public Nullable<int> InstallmentsNo { get; set; }
         public Nullable<System.DateTime> InstallmentDate { get; set; }
+        public string IsPaid { get; set; }
     
         public virtual LoanApply LoanApply { get; set; }
     }

@@ -1,0 +1,36 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "PendingRequest";
+}
+
+<h2>Employee Against Pendind Requests</h2>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th style="display:none;">
+            Name
+        </th>
+        <th>Email</th>
+        <th>Loan Money</th>
+        <th>Request Date</th>
+        <th>NoOfInstallments</th>
+        <th>InstallmentStartDate</th>
+        <th>InstallmentEndDate</th>
+    </tr>
+    @for (int i = 0; i < Model.Rows.Count; i++)
+    {
+        <tr>
+            <td style="display:none;">
+                @Model.Rows[i][0]
+            </td>
+            <td>@Model.Rows[i][1]</td>
+            <td>@Model.Rows[i][2]</td>
+            <td>@Model.Rows[i][3]</td>
+            <td>@Model.Rows[i][4]</td>
+            <td>@Model.Rows[i][5]</td>
+            <td>@Model.Rows[i][6]</td>
+        </tr>
+    }
+</table>
+
+

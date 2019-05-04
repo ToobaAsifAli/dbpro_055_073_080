@@ -34,5 +34,6 @@ namespace EmployeeLoanManagementSystem.Models
         public virtual DbSet<LoanDocumentVerify> LoanDocumentVerifies { get; set; }
         public virtual DbSet<LoanRequestStatu> LoanRequestStatus { get; set; }
         public virtual DbSet<Lookup> Lookups { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

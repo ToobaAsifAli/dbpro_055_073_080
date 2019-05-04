@@ -4,11 +4,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="DepartmentId" Type="int" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="Designation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Department">
     <Key>
@@ -41,6 +39,8 @@
     <Property Name="DepartmentId" Type="int" Nullable="false" />
     <Property Name="ProvidentFundOptedDate" Type="datetime" />
     <Property Name="CNIC" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsEmailSent" Type="nchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="Installment">
     <Key>
@@ -50,6 +50,7 @@
     <Property Name="LoanId" Type="int" Nullable="false" />
     <Property Name="InstallmentsNo" Type="int" />
     <Property Name="InstallmentDate" Type="datetime" />
+    <Property Name="IsPaid" Type="nchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="LoanApply">
     <Key>
@@ -59,14 +60,14 @@
     <Property Name="EmployeeId" Type="int" Nullable="false" />
     <Property Name="LoanCategory" Type="int" Nullable="false" />
     <Property Name="LoanMoney" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="NoOfInstallments" Type="int" Nullable="false" />
-    <Property Name="InstallmentStartDate" Type="datetime" />
-    <Property Name="InstallmentEndDate" Type="datetime" />
-    <Property Name="Template" Type="image" Nullable="false" />
+    <Property Name="NoOfInstallments" Type="int" />
     <Property Name="RequestDate" Type="datetime" Nullable="false" />
-    <Property Name="LoanAgreement" Type="image" Nullable="false" />
     <Property Name="LoanForProperty" Type="nchar" MaxLength="1" />
     <Property Name="LoanForAutomobile" Type="nchar" MaxLength="1" />
+    <Property Name="Installment Money" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="InstallmentStartDate" Type="datetime" />
+    <Property Name="InstallmentEndDate" Type="datetime" />
+    <Property Name="LoanAgreement" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="LoanCategory">
     <Key>
@@ -75,19 +76,17 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="LoanDocumentVerify">
     <Key>
       <PropertyRef Name="LoanId" />
     </Key>
     <Property Name="LoanId" Type="int" Nullable="false" />
-    <Property Name="PropertyDocument" Type="image" />
-    <Property Name="AutomobileDocument" Type="image" />
     <Property Name="IsDefaulter" Type="nchar" MaxLength="1" />
     <Property Name="Reason" Type="nvarchar(max)" />
     <Property Name="Status" Type="nchar" MaxLength="10" />
     <Property Name="SubmissionDate" Type="datetime" />
+    <Property Name="PropertyDocument" Type="nvarchar" MaxLength="50" />
+    <Property Name="AutomobileDocument" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="LoanRequestStatus">
     <Key>
@@ -107,18 +106,16 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
     <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Designation" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK_Admin_Department">
-    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Admin">
-        <PropertyRef Name="DepartmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <Association Name="FK_Employee_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="1" />
     <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -210,23 +207,10 @@ warning 6002: The table/view 'DB7.dbo.LoanDocumentVerify' does not have a primar
     <EntitySet Name="Installment" EntityType="Self.Installment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanApply" EntityType="Self.LoanApply" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanCategory" EntityType="Self.LoanCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoanDocumentVerify" EntityType="Self.LoanDocumentVerify" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanRequestStatus" EntityType="Self.LoanRequestStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lookup" EntityType="Self.Lookup" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LoanDocumentVerify" EntityType="Self.LoanDocumentVerify" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [LoanDocumentVerify].[LoanId] AS [LoanId], 
-    [LoanDocumentVerify].[PropertyDocument] AS [PropertyDocument], 
-    [LoanDocumentVerify].[AutomobileDocument] AS [AutomobileDocument], 
-    [LoanDocumentVerify].[IsDefaulter] AS [IsDefaulter], 
-    [LoanDocumentVerify].[Reason] AS [Reason], 
-    [LoanDocumentVerify].[Status] AS [Status], 
-    [LoanDocumentVerify].[SubmissionDate] AS [SubmissionDate]
-    FROM [dbo].[LoanDocumentVerify] AS [LoanDocumentVerify]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK_Admin_Department" Association="Self.FK_Admin_Department">
-      <End Role="Department" EntitySet="Department" />
-      <End Role="Admin" EntitySet="Admin" />
-    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
       <End Role="Department" EntitySet="Department" />
       <End Role="Employee" EntitySet="Employee" />

@@ -11,7 +11,7 @@ namespace EmployeeLoanManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
-        SqlConnection conn = new SqlConnection("Data Source=HAIER-PC\\SQLEXPRESS;Initial Catalog=DB7;User ID=sa;Password=maham180598;MultipleActiveResultSets=True;Application Name=EntityFramework");
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
         private DB7Entities4 db = new DB7Entities4();
 
         public ActionResult Index()

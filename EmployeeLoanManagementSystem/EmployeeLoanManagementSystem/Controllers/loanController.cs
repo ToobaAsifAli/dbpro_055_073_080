@@ -351,7 +351,7 @@ namespace EmployeeLoanManagementSystem.Controllers
             {
                 conn.Open();
             }
-            string e = "User.Identity.Name";
+            string e = "User.Identity.Name.ToString()";
             string query = "SELECT LoanApplyId,LoanMoney,RequestDate,RequestStatus,Reason from LoanApply JOIN LoanRequestStatus ON LoanRequestStatus.LoanId = LoanApply.LoanApplyId JOIN LoanCategory on LoanCategory.Id=LoanApply.LoanCategory JOIN Employee on Employee.Id = LoanApply.EmployeeId  where LoanCategory='" + cat + "' AND Employee.Email ='" +e + "'";
             //va
             string query1 = "SELECT LoanApplyId,LoanMoney,RequestDate,RequestStatus,Reason from LoanApply  JOIN LoanCategory on LoanCategory.Id=LoanApply.LoanCategory   where LoanCategory='" + cat + "' ";

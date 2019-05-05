@@ -46,7 +46,7 @@
     <li>The employee must then submit it and he/she will be informed of the loan status via email</li>
 </ul>
 <br />
-<a href=@Url.Action("Create","loan",new { @email = "User.Identity.Name.ToString()"  },null ) class="a" style="font-size:16px"">&#8680 Start Application Form</a>
+<a href=@Url.Action("Create","loan",new { @email = User.Identity.Name  },null ) class="a" style="font-size:16px"">&#8680 Start Application Form</a>
 <br/>
 <a href=@Url.Action("welcome","loan") class="a" style="font-size:16px">&#8678 Back</a>
 <br />
